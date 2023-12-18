@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,14 @@ public class CharacterSheet : MonoBehaviour
     {
         for (int i = 0; i < hearts.Length; i++)
         {
+            if (i < health)
+            {
+                hearts[i].sprite = fullHeart;
+            }
+            else
+            {
+                hearts[i].sprite = emptyHeart;
+            }
             if (i < numOfHearts)
             {
                 hearts[i].enabled = true;
