@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
     public Weapon weapon;
+    public CharacterSheet CharacterSheet;
+    public AudioSource audioData;
+    public AudioClip clip;
 
     Vector2 moveDirection;
     Vector2 mousePosition;
@@ -19,6 +22,8 @@ public class PlayerController : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             weapon.Fire();
+            audioData.PlayOneShot(clip);
+            CharacterSheet.loseAmmo(1);
         }
         moveDirection = new Vector2(moveX, moveY).normalized;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

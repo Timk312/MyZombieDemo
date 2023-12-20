@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class enemyAttack : MonoBehaviour
 {
+    public CharacterSheet characterSheet;
     private void OnCollisionEnter2D(Collision2D collision)
     {
        
         if (collision.gameObject.tag == "Player")
         {
-            Destroy(collision.gameObject);
+            characterSheet.loseHealth(1);
+            Destroy(gameObject);
         }
 
     }
