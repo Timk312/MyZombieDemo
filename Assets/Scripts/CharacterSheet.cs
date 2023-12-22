@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CharacterSheet : MonoBehaviour
@@ -22,10 +23,18 @@ public class CharacterSheet : MonoBehaviour
 
    void Start()
     {
-        Cursor.visible = false;
+      //  Cursor.visible = false;
     }
     void Update()
     {
+
+        //death
+        if (health == 0)
+        {
+          //  Cursor.visible = true;
+            SceneManager.LoadScene(1);
+        }
+
         for (int i = 0; i < hearts.Length; i++)
         {
             if (i < health)

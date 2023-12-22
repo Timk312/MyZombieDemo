@@ -11,19 +11,27 @@ public class PlayerController : MonoBehaviour
     public CharacterSheet CharacterSheet;
     public AudioSource audioData;
     public AudioClip clip;
+    [SerializeField] GameObject light;
+    public Animator animator;
 
     Vector2 moveDirection;
     Vector2 mousePosition;
+
     void Update()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && CharacterSheet.ammo>0)
         {
             weapon.Fire();
+            animator.SetBool("Shoot", true);
+            light.SetActive(true);
             audioData.PlayOneShot(clip);
             CharacterSheet.loseAmmo(1);
+            Invoke("shoot", .25f);
+            Invoke("delay", .075f);
+            
         }
         moveDirection = new Vector2(moveX, moveY).normalized;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -35,5 +43,14 @@ public class PlayerController : MonoBehaviour
         Vector2 aimDirection = mousePosition - rb.position;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = aimAngle;
+    }
+
+    private void delay()
+    {
+        light.SetActive(false);
+    }
+    private void shoot()
+    {
+        animator.SetBool("Shoot", false);
     }
 }
