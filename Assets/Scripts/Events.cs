@@ -5,8 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class Events : MonoBehaviour
 {
+    public static Events Instance;
     public int killCount;
     public int maxZombies;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void Start()
     {
@@ -18,5 +31,11 @@ public class Events : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
+    }
+
+    public void IncreaseKillCount()
+    {
+        killCount++;
+
     }
 }
