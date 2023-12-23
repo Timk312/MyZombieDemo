@@ -21,17 +21,15 @@ public class CharacterSheet : MonoBehaviour
     public Sprite fullAmmo;
     public Sprite emptyAmmo;
 
-   void Start()
-    {
-      //  Cursor.visible = false;
-    }
+    public Animator animator;
+
+
     void Update()
     {
 
         //death
         if (health == 0)
         {
-          //  Cursor.visible = true;
             SceneManager.LoadScene(1);
         }
 
@@ -87,6 +85,14 @@ public class CharacterSheet : MonoBehaviour
         if (health > 0)
         {
             health -= x;
+            animator.SetBool("getHit", true);
+            Events.Instance.IncreaseKillCount();
+            Invoke("getingHit", .50f);
         }
+    }
+
+    private void getingHit()
+    {
+        animator.SetBool("getHit", false);
     }
 }

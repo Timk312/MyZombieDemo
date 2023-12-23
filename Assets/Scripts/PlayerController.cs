@@ -12,24 +12,33 @@ public class PlayerController : MonoBehaviour
     public AudioSource audioData;
     public AudioClip clip;
     public AudioClip outOfAmmoSound;
-    [SerializeField] GameObject light;
+    [SerializeField] GameObject shotLight;
     public Animator animator;
+    public float fireRate = 1f;
+    private float nextFireTime = 0f;
+   // public SpriteRenderer originalRenderer;
 
     Vector2 moveDirection;
     Vector2 mousePosition;
 
+   void Start()
+    {
+      //  originalRenderer = GetComponent<SpriteRenderer>();
+    }
     void Update()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
-        if(Input.GetMouseButtonDown(0) && CharacterSheet.ammo>0)
+        if(Input.GetMouseButtonDown(0) && CharacterSheet.ammo>0 && Time.time >= nextFireTime)
         {
             weapon.Fire();
+            //originalRenderer.enabled = false;
             animator.SetBool("Shoot", true);
-            light.SetActive(true);
+            shotLight.SetActive(true);
             audioData.PlayOneShot(clip);
             CharacterSheet.loseAmmo(1);
+            nextFireTime = Time.time + 1f / fireRate;
             Invoke("shoot", .25f);
             Invoke("delay", .075f);
             
@@ -52,10 +61,11 @@ public class PlayerController : MonoBehaviour
 
     private void delay()
     {
-        light.SetActive(false);
+        shotLight.SetActive(false);
     }
     private void shoot()
     {
         animator.SetBool("Shoot", false);
+       // originalRenderer.enabled = true;
     }
 }
