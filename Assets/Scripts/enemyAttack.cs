@@ -5,6 +5,13 @@ using UnityEngine;
 public class enemyAttack : MonoBehaviour
 {
     public CharacterSheet characterSheet;
+    public AudioSource audioData2;
+    public AudioClip zombieSound;
+
+    private void Start()
+    {
+        audioData2.PlayOneShot(zombieSound);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
        

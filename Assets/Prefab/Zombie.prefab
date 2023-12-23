@@ -187,3 +187,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterSheet: {fileID: 0}
+  audioData2: {fileID: 0}
+  zombieSound: {fileID: 8300000, guid: 6124404192a308d44862141a513fce86, type: 3}
