@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public CharacterSheet CharacterSheet;
     public AudioSource audioData;
     public AudioClip clip;
+    public AudioClip outOfAmmoSound;
     [SerializeField] GameObject light;
     public Animator animator;
 
@@ -32,6 +33,10 @@ public class PlayerController : MonoBehaviour
             Invoke("shoot", .25f);
             Invoke("delay", .075f);
             
+        }
+        if(Input.GetMouseButtonDown(0) && CharacterSheet.ammo == 0)
+        {
+            audioData.PlayOneShot(outOfAmmoSound);
         }
         moveDirection = new Vector2(moveX, moveY).normalized;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
