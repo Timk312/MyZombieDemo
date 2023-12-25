@@ -86,7 +86,6 @@ public class CharacterSheet : MonoBehaviour
         {
             health -= x;
             animator.SetBool("getHit", true);
-            Events.Instance.IncreaseKillCount();
             Invoke("getingHit", .50f);
         }
     }
