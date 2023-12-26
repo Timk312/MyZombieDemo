@@ -40,7 +40,8 @@ public class Bullet : MonoBehaviour
             }
 
             // Optionally, you can still increase the kill count using your Events system
-            Events.Instance.IncreaseKillCount();
+           // Events.Instance.IncreaseKillCount();
+            //Debug.Log("Killcount ++");
         }
     }
 }

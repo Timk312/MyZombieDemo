@@ -104,6 +104,8 @@ public class zombieSheet : MonoBehaviour
 
     public void Die()
     {
+        Events.Instance.IncreaseKillCount();
+        Debug.Log("Killcount ++");
         if (dead || hasPlayedDeadAnimation)
         {
             Debug.Log("Already dead or animation played");

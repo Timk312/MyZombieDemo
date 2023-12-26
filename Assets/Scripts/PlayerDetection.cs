@@ -25,8 +25,8 @@ public class PlayerDetection : MonoBehaviour
             }
 
             // Optionally, you can still increase the kill count using your Events system
-            Events.Instance.IncreaseKillCount();
-            Debug.Log("Killcount ++");
+            //Events.Instance.IncreaseKillCount();
+           // Debug.Log("Killcount ++");
         }
     }
 }
