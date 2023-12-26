@@ -8,7 +8,7 @@ public class Events : MonoBehaviour
     public static Events Instance;
     public int killCount;
     public int maxZombies;
-
+    public MusicSwitcher musicSwitcher;
     private void Awake()
     {
         if (Instance == null)
@@ -29,8 +29,11 @@ public class Events : MonoBehaviour
     {
         if (killCount == maxZombies)
         {
-            SceneManager.LoadScene(0);
+            //SceneManager.LoadScene(0);
+            musicSwitcher.SwitchMusic(1);
+            killCount = 0;
         }
+        
     }
 
     public void IncreaseKillCount()
