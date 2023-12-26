@@ -84,12 +84,15 @@ public class zombieSheet : MonoBehaviour
     public Animator animator;
     public bool dead = false;
     public Sprite deadZombie;
+    public AudioSource audioData2;
+    public AudioClip zombieSound;
 
     private Collider2D zombieCollider; // Reference to the Collider component
     private bool hasPlayedDeadAnimation = false;
 
     private void Start()
     {
+        audioData2.PlayOneShot(zombieSound);
         // Assuming you have the animator component attached to the same GameObject
         if (animator == null)
         {
