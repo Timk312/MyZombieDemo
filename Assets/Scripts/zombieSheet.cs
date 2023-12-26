@@ -84,15 +84,14 @@ public class zombieSheet : MonoBehaviour
     public Animator animator;
     public bool dead = false;
     public Sprite deadZombie;
-    public AudioSource audioData2;
-    public AudioClip zombieSound;
+    private AudioSource audioSource;
 
     private Collider2D zombieCollider; // Reference to the Collider component
     private bool hasPlayedDeadAnimation = false;
 
     private void Start()
     {
-        audioData2.PlayOneShot(zombieSound);
+        audioSource = GetComponent<AudioSource>();
         // Assuming you have the animator component attached to the same GameObject
         if (animator == null)
         {
@@ -121,7 +120,7 @@ public class zombieSheet : MonoBehaviour
         Vector3 newPosition = transform.position;
         newPosition.z = 1f;
         transform.position = newPosition;
-
+        DisableAudioSourceComponent();
         dead = true;
 
         // Set the dead animation trigger
@@ -161,6 +160,18 @@ public class zombieSheet : MonoBehaviour
         DisableAllComponents();
     }
 
+    void DisableAudioSourceComponent()
+    {
+        // Check if the AudioSource component exists
+        if (audioSource != null)
+        {
+            // Disable the AudioSource component
+            audioSource.enabled = false;
+
+            // Alternatively, you can stop the audio playback
+            // audioSource.Stop();
+        }
+    }
     private void DisableAllComponents()
     {
         // Disable all components except Transform

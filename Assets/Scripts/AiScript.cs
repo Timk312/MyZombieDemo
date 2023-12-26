@@ -23,6 +23,8 @@ public class AiScript : MonoBehaviour
     }
 }
 */
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -57,3 +59,4 @@ public class AiScript : MonoBehaviour
         }
     }
 }
+
