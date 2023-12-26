@@ -7,6 +7,6 @@ public class ChangeScenes : MonoBehaviour
 {
     public void TryAgain()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
     }
 }
