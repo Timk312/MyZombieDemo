@@ -22,7 +22,20 @@ public class CharacterSheet : MonoBehaviour
     public Sprite emptyAmmo;
 
     public Animator animator;
+    public PlayerController playerControl;
+    public static CharacterSheet Instance;
 
+    public void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Update()
     {
@@ -90,8 +103,33 @@ public class CharacterSheet : MonoBehaviour
         }
     }
 
+    public void loseHpNoMelee(int x)
+    {
+        if (health > 0)
+        {
+            health -= x;
+        }
+    }
+
     private void getingHit()
     {
         animator.SetBool("getHit", false);
+    }
+    public void pushBack(Vector2 pushDirection, float pushForce)
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        if (rb != null)
+        {
+            playerControl.enabled = false;
+            // Apply force to push the object back
+            rb.AddForce(pushDirection * pushForce, ForceMode2D.Impulse);
+            Invoke("resumeControl", .5f);
+        }
+        
+    }
+    public void resumeControl()
+    {
+        playerControl.enabled = true;
     }
 }

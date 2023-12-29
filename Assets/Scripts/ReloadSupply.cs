@@ -17,6 +17,4 @@ public class ReloadSupply : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
-
 }

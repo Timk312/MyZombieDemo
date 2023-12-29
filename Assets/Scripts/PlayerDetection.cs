@@ -23,10 +23,10 @@ public class PlayerDetection : MonoBehaviour
                 // Notify the specific zombie instance that it should die
                 zombie.Die();
             }
-
-            // Optionally, you can still increase the kill count using your Events system
-            //Events.Instance.IncreaseKillCount();
-           // Debug.Log("Killcount ++");
+        }
+        if (other.CompareTag("boss"))
+        {
+            BossHp.Instance.TakeDamage(5);
         }
     }
 }

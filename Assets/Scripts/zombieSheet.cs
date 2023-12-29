@@ -1,80 +1,3 @@
-/* using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class zombieSheet : MonoBehaviour
-{
-    public Animator animator;
-    public bool dead = false;
-    public static zombieSheet Instance;
-    public Sprite deadZombie;
-    private Rigidbody rb;
-
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
-    private static List<zombieSheet> allZombies = new List<zombieSheet>();
-    private void Awake()
-    {
-        allZombies.Add(this);
-    }
-    private void OnDestroy()
-    {
-        allZombies.Remove(this);
-    }
-
-    public void Update()
-    {
-        if (dead == true)
-        {
-            Die();
-        }
-    }
-    public void Die()
-    {
-        dead = true;
-        Vector3 currentPosition = transform.position;
-        currentPosition.z = 1;
-        transform.position = currentPosition;
-        animator.SetBool("dead", true);
-        if (rb != null)
-        {
-
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            Destroy(rb);
-        }
-        Invoke("replace", 1);
-    }
-
-    public static void NotifyAllZombies()
-    {
-       foreach (var zombie in allZombies)
-        {
-            zombie.Die();
-        }
-    }
-
-    private void replace()
-    {
-        DisableAllComponents();
-        this.gameObject.GetComponent<SpriteRenderer>().sprite = deadZombie;
-
-    }
-
-    private void DisableAllComponents()
-    {
-        Component[] allComponents = GetComponents<Component>();
-        foreach (var component in allComponents)
-        {
-            if (component is Transform) continue;
-            if (component is Behaviour behaviour) behaviour.enabled = false;
-        }
-    }
-}
-*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -89,8 +12,9 @@ public class zombieSheet : MonoBehaviour
     private Collider2D zombieCollider; // Reference to the Collider component
     private bool hasPlayedDeadAnimation = false;
 
-    private void Start()
+    void Start()
     {
+      
         audioSource = GetComponent<AudioSource>();
         // Assuming you have the animator component attached to the same GameObject
         if (animator == null)

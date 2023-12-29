@@ -1,23 +1,3 @@
-/*using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class Bullet : MonoBehaviour
-{
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Destroy(gameObject);
-        if (collision.gameObject.tag == "enemy")
-        {
-            Events.Instance.IncreaseKillCount();
-            zombieSheet.Instance.dead = true;
-           // Destroy(collision.gameObject);
-        }
-      
-    }
-}
-*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,6 +22,10 @@ public class Bullet : MonoBehaviour
             // Optionally, you can still increase the kill count using your Events system
            // Events.Instance.IncreaseKillCount();
             //Debug.Log("Killcount ++");
+        }
+        if (collision.gameObject.CompareTag("boss"))
+        {
+            BossHp.Instance.TakeDamage(5);
         }
     }
 }
