@@ -42,8 +42,8 @@ public class Events : MonoBehaviour
         if (killCount == maxZombies)
         {
             //SceneManager.LoadScene(0);
-            musicSwitcher.SwitchMusic(1);
-            killCount = 0;
+           // musicSwitcher.SwitchMusic(1);
+            //killCount = 0;
         }
         
     }
@@ -56,6 +56,6 @@ public class Events : MonoBehaviour
 
     public void startNewWave()
     {
-        killCount = 50;
+        killCount = 51;
     }
 }

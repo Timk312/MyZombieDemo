@@ -8,11 +8,23 @@ public class supplyStation : MonoBehaviour
     public AudioSource audioData1;
     public AudioClip resupplySound;
     public bool available = true;
-    private float timer = 25f;
+    private float timer = 15f;
     public GameObject countdownBox;
     public CountdownScript countdownscript;
 
     private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player" && available)
+        {
+            CharacterSheet.ammo = CharacterSheet.numOfAmmo;
+            audioData1.PlayOneShot(resupplySound);
+            available = false;
+            countdownBox.SetActive(true);
+            countdownscript.startCountdown();
+            StartCoroutine(EnableAfterDelay());
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Player" && available)
         {

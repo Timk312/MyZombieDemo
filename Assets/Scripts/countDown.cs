@@ -22,7 +22,6 @@ public class CountdownScript : MonoBehaviour
     private IEnumerator StartCountdown()
     {
         float countdownValue = countdownDuration;
-
         while (countdownValue > 0)
         {
             // Update the UI text with the current countdown value
@@ -33,7 +32,14 @@ public class CountdownScript : MonoBehaviour
 
             // Decrease the countdown value
             countdownValue--;
+
+            // Additional check to prevent potential infinite loop
+            if (countdownValue < 0)
+            {
+                countdownValue = 0; // Ensure countdownValue does not become negative
+            }
         }
+
         textObject.SetActive(false);
     }
 }

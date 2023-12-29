@@ -9,7 +9,7 @@ public class BossHp : MonoBehaviour
 {
     public static BossHp Instance;
     public Image healthBar;
-    public float healthAmount = 100;
+    public float healthAmount = 125;
     public float maxhp;
     public GameObject bossWave;
     public string enemyTag = "enemy";
@@ -36,7 +36,7 @@ public class BossHp : MonoBehaviour
         {
             Destroy(bossWave);
             KillAllEnemies();
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(2);
         }
 
         if(healthAmount<= maxhp / 2)
@@ -47,7 +47,7 @@ public class BossHp : MonoBehaviour
     public void TakeDamage(float damage)
     {
         healthAmount -= damage;
-        healthBar.fillAmount = healthAmount / 100f;
+        healthBar.fillAmount = healthAmount / 125f;
     }
 
     public void KillAllEnemies()
