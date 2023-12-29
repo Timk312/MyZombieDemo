@@ -182,7 +182,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mother Fuckers
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 62f31bc99c6aa3c4a8a1bb2e611dfde1, type: 2}
   m_sharedMaterial: {fileID: 1254855643121551720, guid: 62f31bc99c6aa3c4a8a1bb2e611dfde1, type: 2}
@@ -611,7 +611,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 89.3, y: 114.6}
+  m_AnchoredPosition: {x: 54, y: 71}
   m_SizeDelta: {x: 307.7635, y: 99.5129}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2036214121
@@ -634,7 +634,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BOSS TIME!!!
+  m_text: GGWP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a98246150f4911b4fb2635c5b945ceb4, type: 2}
   m_sharedMaterial: {fileID: -2087415208854683386, guid: a98246150f4911b4fb2635c5b945ceb4, type: 2}
@@ -668,8 +668,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

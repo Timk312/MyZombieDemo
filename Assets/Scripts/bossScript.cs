@@ -18,7 +18,12 @@ public class bossScript : MonoBehaviour
     public CharacterSheet player;
     public float pushForce = 100f;
     public GameObject playerObject;
+    public bossAI aiscript;
 
+    public void Start()
+    {
+        aiscript = GetComponent<bossAI>();
+    }
 
     public void Update()
     {
@@ -77,6 +82,12 @@ public class bossScript : MonoBehaviour
             // Call pushBack on the player with the desired force
             player.pushBack(pushDirection, pushForce); // Adjust the force as needed
         }
+    }
+
+   public void halfHealth()
+    {
+        Debug.Log("half hp");
+        aiscript.enabled = true;
     }
 
 }

@@ -12,8 +12,8 @@ public class zombieSpawner : MonoBehaviour
     void Start()
     {
         // Start spawning zombies every 10 seconds, repeating indefinitely
-        InvokeRepeating("SpawnZombies1", 15f, 15f);
-        InvokeRepeating("SpawnZombies2", 5f, 15f);
+        InvokeRepeating("SpawnZombies1", 15f, 10f);
+        InvokeRepeating("SpawnZombies2", 5f, 10f);
     }
 
     // Coroutine for spawning zombies

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CountdownScript : MonoBehaviour
 {
     public TMP_Text countdownText;
-    public float countdownDuration = 10f;
+    public float countdownDuration = 20f;
     public GameObject textObject;
 
     private void Start()

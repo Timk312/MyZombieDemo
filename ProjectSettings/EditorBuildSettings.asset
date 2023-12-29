@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Prison.unity
     guid: 4d03ec88f26ea5841bddd2f077cb61e2
   - enabled: 1
-    path: Assets/Scenes/BossTime.unity
+    path: Assets/Scenes/VICTORY.unity
     guid: 1f17b022542248a4e81e3edc5e695919
   m_configObjects: {}

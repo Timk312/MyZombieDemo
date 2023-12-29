@@ -8,10 +8,9 @@ public class supplyStation : MonoBehaviour
     public AudioSource audioData1;
     public AudioClip resupplySound;
     public bool available = true;
-    private float timer = 10f;
+    private float timer = 25f;
     public GameObject countdownBox;
     public CountdownScript countdownscript;
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
