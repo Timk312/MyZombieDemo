@@ -30,7 +30,7 @@ public class MusicSwitcher : MonoBehaviour
         }
     }
 
-    public void SwitchMusic(int trackIndex)
+    void SwitchMusic(int trackIndex)
     {
         if (trackIndex < 0 || trackIndex >= musicTracks.Count)
         {

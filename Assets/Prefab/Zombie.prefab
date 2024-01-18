@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6521227247597176072}
   - component: {fileID: 404901162372378448}
   - component: {fileID: 910160567429247871}
+  - component: {fileID: 2218247799348800144}
   - component: {fileID: 7493479615586377329}
   - component: {fileID: 6510124684250932512}
   m_Layer: 0
@@ -30,8 +31,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6259765075827795642}
-  m_LocalRotation: {x: -0, y: 0, z: -0.99997306, w: -0.007338961}
-  m_LocalPosition: {x: -6.1, y: -6.58, z: 1.1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.9999731, w: -0.0073370514}
+  m_LocalPosition: {x: -6.589999, y: -6.47, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 0.5472717}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -117,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435e44b4c70366f44aa73afecaffb712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   speed: 2
 --- !u!61 &404901162372378448
 BoxCollider2D:
@@ -150,7 +152,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.18879625, y: -0.00066685677}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -161,7 +163,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3775921, y: 1.9690342}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &910160567429247871
 Rigidbody2D:
@@ -182,7 +184,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -190,6 +192,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2218247799348800144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6259765075827795642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8226b5b5a290bd24ca4e21d9228a0cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterSheet: {fileID: 0}
+  audioData2: {fileID: 0}
+  zombieSound: {fileID: 8300000, guid: 6124404192a308d44862141a513fce86, type: 3}
 --- !u!82 &7493479615586377329
 AudioSource:
   m_ObjectHideFlags: 0
@@ -200,20 +217,20 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 35e65ee21ddda9746801d76b0e8084b0, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 6124404192a308d44862141a513fce86, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 14
+  MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 1
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -246,7 +263,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
